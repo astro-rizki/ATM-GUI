@@ -5,8 +5,6 @@
  */
 package Controller;
 
-import Model.BalanceInquiry;
-import Model.Transaction;
 import View.Keypad;
 import View.Screen;
 

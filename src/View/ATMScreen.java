@@ -163,20 +163,24 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         super.repaint();
     }
 
-    public void showBalance(int amount) {
+    public void showBalance(int acc, double avail, double total) {
         disableChoiceLabel();
         showOKandCancel();
         cursorPosition = "NONE";
         label8.setVisible(false);
         topLabel.setText("ACCOUNT INFO");
-        midleft1.setText("Your Account number :");
-        midleft2.setText("Your Balance        :");
-        midright1.setText("-");
-        midright2.setText(printDollarAmount(amount));
+        midleft1.setText("Your Account number    :");
+        midleft2.setText("Your Available Balance :");
+        midright1.setText(acc+"");
+        midright2.setText(printDollarAmount(avail));
+        botLabel1.setText("Your Total Balance is :");
+        botLabel2.setText(printDollarAmount(total));
         midleft1.setVisible(true);
         midleft2.setVisible(true);
         midright1.setVisible(true);
         midright2.setVisible(true);
+        botLabel1.setVisible(true);
+        botLabel2.setVisible(true);
         super.repaint();
     }
 
@@ -199,7 +203,43 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         botLabel1.setText("Please Wait");
         super.repaint();
     }
-
+    
+    public void show_ranOutMoney(){
+        disableAllLabel();
+        showOKandCancel();
+        topLabel.setText("!OUT OF MONEY!");
+        midleft1.setText("We're sorry, our machine");
+        midleft2.setText("are running out of money");
+        botLabel1.setText("Please Contact");
+        botLabel2.setText("Administrator");
+        topLabel.setVisible(true);
+        midleft1.setVisible(true);
+        midleft2.setVisible(true);
+        botLabel1.setVisible(true);
+        botLabel2.setVisible(true);
+        label8.setVisible(false);
+        
+        super.repaint();
+    }
+    
+    public void show_insufficientBalance(double balance, int amount){
+        disableAllLabel();
+        showOKandCancel();
+        topLabel.setText("!Insufficient Balance!");
+        midleft1.setText("Unable to process");
+        midleft2.setText("your withdraw : "+printDollarAmount(amount));
+        botLabel1.setText("Your Balance is");
+        botLabel2.setText(printDollarAmount(balance));
+        topLabel.setVisible(true);
+        midleft1.setVisible(true);
+        midleft2.setVisible(true);
+        botLabel1.setVisible(true);
+        botLabel2.setVisible(true);
+        label8.setVisible(false);
+        
+        super.repaint();
+    }
+    
     private String printDollarAmount(double amount) {
         return String.format("$%,.2f", amount);
     }
@@ -352,13 +392,13 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
             case "TOP":
                 if (midright1.getText().contains("\\$")) {
                     return (int) getNumericDollarAmount(midright1.getText()) * 100;
-                } else {
+                } else if (!midright1.getText().equals("")){
                     return Integer.parseInt(midright1.getText());
                 }
             case "BOT":
                 if (midright2.getText().contains("\\$")) {
                     return (int) getNumericDollarAmount(midright2.getText()) * 100;
-                } else {
+                } else if (!midright2.getText().equals("")){
                     return Integer.parseInt(midright2.getText());
                 }
             default:

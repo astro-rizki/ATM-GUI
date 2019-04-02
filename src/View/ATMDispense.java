@@ -18,6 +18,7 @@ public class ATMDispense extends javax.swing.JPanel {
 
     public ATMDispense() {
         initComponents();
+        jPanel6.setVisible(false);
     }
 
     /**
@@ -31,6 +32,7 @@ public class ATMDispense extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         LED_Panel = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -73,6 +75,26 @@ public class ATMDispense extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 10));
+
+        jPanel6.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 670, 30));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -131,18 +153,24 @@ public class ATMDispense extends javax.swing.JPanel {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 690, 10));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        jPanel6.setVisible(false);
+        stopBlink();
+        super.repaint();
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /* THIS METHOD USED TO BLINK BLINK THE LED 
     MAX : 8 times blink - blink*/
     public void blink() {
         LED_Panel.setBackground(new java.awt.Color(0, 255, 0));
         LED_Panel.repaint();
-        
+        jPanel6.setVisible(true);
 
         tm = new javax.swing.Timer(550, new ActionListener() {
             boolean on = true;
@@ -163,6 +191,7 @@ public class ATMDispense extends javax.swing.JPanel {
     }
 
     public void stopBlink() {
+        tm.stop();
         LED_Panel.setBackground(new java.awt.Color(0, 135, 0));
         LED_Panel.repaint();
     }
@@ -175,5 +204,6 @@ public class ATMDispense extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 }

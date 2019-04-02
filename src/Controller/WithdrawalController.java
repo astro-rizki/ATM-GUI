@@ -6,8 +6,6 @@
 package Controller;
 
 import static Model.Constants.*;
-import Model.Transaction;
-import Model.Withdrawal;
 import View.Keypad;
 import View.Screen;
 

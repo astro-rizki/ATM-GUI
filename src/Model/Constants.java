@@ -38,5 +38,6 @@ public final class Constants {
     public static final int DEPOSIT_GETENVELOPE = 42;
     public static final int WITHDRAW = 5;
     public static final int LOGOUT = 6;
-    
+    public static final int ERR_RAN_OUT_OF_MONEY = 56;
+    public static final int ERR_INSUFFICIENT = 57;
 }

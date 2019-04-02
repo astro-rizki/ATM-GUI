@@ -5,6 +5,8 @@
  */
 package Model;
 
+import Controller.BankDatabase;
+import Controller.Transaction;
 import static Model.Constants.*;
 
 /**

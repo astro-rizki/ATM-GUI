@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Model.Transaction;
 import View.Keypad;
 import View.Screen;
 
