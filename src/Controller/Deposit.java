@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Controller;
 
-import Controller.BankDatabase;
-import Controller.Transaction;
+import Model.Account;
 import static Model.Constants.*;
 
 /**
