@@ -40,59 +40,6 @@ public class ATM_Controller {
 	   return false;
 	}
     }
-    
-    
-
-    // display the main menu and perform transactions
-    private void performTransactions() {
-	// local variable to store transaction currently being processed
-	Transaction currentTransaction = null;
-	TransactionController currentTransactionController = null;
-
-	boolean userExited = false; // user has not chosen to exit
-
-	// loop while user has not chosen option to exit system
-	while (!userExited) {
-	    // show main menu and get user selection
-	    int mainMenuSelection = 0;
-
-	    // decide how to proceed based on user's menu selection
-	    switch (mainMenuSelection) {
-		// user chose to perform one of three transaction types
-		case BALANCE_INQUIRY:
-
-		    // initialize as new object of chosen type
-		    currentTransaction
-			    = createTransaction(mainMenuSelection);
-//		    currentTransactionController
-//			    = new BalanceInquiryController(currentTransaction, keypad, screen);
-		    currentTransactionController.run(); // execute transaction
-		    break;
-		    
-		case WITHDRAWAL:
-		    currentTransaction
-			    = createTransaction(mainMenuSelection);
-//		    currentTransactionController
-//			    = new WithdrawalController(currentTransaction, keypad, screen);
-		    currentTransactionController.run(); // execute transaction
-		    break;
-		    
-		case DEPOSIT:
-		    currentTransaction
-			    = createTransaction(mainMenuSelection);
-//		    currentTransactionController
-//			    = new DepositController(currentTransaction, keypad, screen);
-		    currentTransactionController.run(); // execute transaction
-		    break;
-		    
-		case EXIT: // user chose to terminate session
-		    userExited = true; // this ATM session should end
-		    break;
-		    
-		default: break;
-	    }
-	}
-    }
 
 
     public Transaction createTransaction(int type) {
