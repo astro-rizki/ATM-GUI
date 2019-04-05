@@ -140,7 +140,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setText("WITHDRAWAL");
     }
 
-    public void showDepositAmount() {
+    public void showDepositGetAmount() {
         disableChoiceLabel();
         showOKandCancel();
         topLabel.setText("DEPOSIT");
@@ -151,14 +151,37 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         midleft1.setVisible(true);
         midleft2.setVisible(true);
         midright2.setVisible(true);
+        botLabel1.setVisible(false);
+        botLabel2.setVisible(false);
         midright2.setHorizontalTextPosition(JLabel.LEFT);
         setCurrentCursor();
         super.repaint();
     }
 
-    public void showDeposit() {
+    public void showDepositGetEnv(double amount) {
         midleft1.setText("PLEASE INSERT THE ENVELOPE");
-        midleft2.setText("CONTAINING    " + printDollarAmount(0));
+        midleft2.setText("CONTAINING    " + printDollarAmount(amount));
+        midright2.setVisible(false);
+        super.repaint();
+    }
+
+    public void showDepositEnvelopeRCVD() {
+        topLabel.setText("SUCCEED");
+        midleft1.setText("Your envelope will be");
+        midleft2.setText("checked soon.");
+        midright2.setVisible(false);
+        label8.setVisible(false);
+        topLabel.setVisible(true);
+        super.repaint();
+    }
+
+    public void showDepositEnvelopeNotRCVD() {
+        topLabel.setText("FAIL");
+        midleft1.setText("Make sure your");
+        midleft2.setText("envelope not folded");
+        label4.setText("TRY AGAIN");
+        label8.setText("MENU");
+        topLabel.setVisible(true);
         midright2.setVisible(false);
         super.repaint();
     }
@@ -171,7 +194,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setText("ACCOUNT INFO");
         midleft1.setText("Your Account number    :");
         midleft2.setText("Your Available Balance :");
-        midright1.setText(acc+"");
+        midright1.setText(acc + "");
         midright2.setText(printDollarAmount(avail));
         botLabel1.setText("Your Total Balance is :");
         botLabel2.setText(printDollarAmount(total));
@@ -203,8 +226,8 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         botLabel1.setText("Please Wait");
         super.repaint();
     }
-    
-    public void show_ranOutMoney(){
+
+    public void show_ranOutMoney() {
         disableAllLabel();
         showOKandCancel();
         topLabel.setText("!OUT OF MONEY!");
@@ -218,16 +241,16 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         botLabel1.setVisible(true);
         botLabel2.setVisible(true);
         label8.setVisible(false);
-        
+
         super.repaint();
     }
-    
-    public void show_insufficientBalance(double balance, int amount){
+
+    public void show_insufficientBalance(double balance, int amount) {
         disableAllLabel();
         showOKandCancel();
         topLabel.setText("!Insufficient Balance!");
         midleft1.setText("Unable to process");
-        midleft2.setText("your withdraw : "+printDollarAmount(amount));
+        midleft2.setText("your withdraw : " + printDollarAmount(amount));
         botLabel1.setText("Your Balance is");
         botLabel2.setText(printDollarAmount(balance));
         topLabel.setVisible(true);
@@ -236,10 +259,10 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         botLabel1.setVisible(true);
         botLabel2.setVisible(true);
         label8.setVisible(false);
-        
+
         super.repaint();
     }
-    
+
     private String printDollarAmount(double amount) {
         return String.format("$%,.2f", amount);
     }
@@ -387,18 +410,18 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         return this.cursorPosition;
     }
 
-    public int getCursorLabelAmount() {
+    public double getCursorLabelAmount() {
         switch (this.cursorPosition) {
             case "TOP":
-                if (midright1.getText().contains("\\$")) {
-                    return (int) getNumericDollarAmount(midright1.getText()) * 100;
-                } else if (!midright1.getText().equals("")){
+                if (midright1.getText().contains(".")) {
+                    return getNumericDollarAmount(midright1.getText()) * 100;
+                } else if (!midright1.getText().equals("")) {
                     return Integer.parseInt(midright1.getText());
                 }
             case "BOT":
-                if (midright2.getText().contains("\\$")) {
-                    return (int) getNumericDollarAmount(midright2.getText()) * 100;
-                } else if (!midright2.getText().equals("")){
+                if (midright2.getText().contains(".")) {
+                    return getNumericDollarAmount(midright2.getText()) * 100;
+                } else if (!midright2.getText().equals("")) {
                     return Integer.parseInt(midright2.getText());
                 }
             default:

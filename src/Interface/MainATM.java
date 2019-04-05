@@ -82,10 +82,16 @@ public class MainATM implements Observer {
                 Balance(x);
                 break;
             case DEPOSIT_GETAMOUNT:
-                DepositGetAmount(x);
+                DepositGetEnvelope(x);
                 break;
             case DEPOSIT_GETENVELOPE:
-                DepositGetEnvelope(x);
+                DepositProceed(x);
+                break;
+            case DEPOSIT_ENV_RCVD:
+                DepositEnvelopeReceived(x);
+                break;
+            case DEPOSIT_ENV_NRCVD:
+                DepositEnvelopeNotReceived(x);
                 break;
             case WITHDRAW:
                 Withdraw(x);
@@ -94,7 +100,36 @@ public class MainATM implements Observer {
                 ranOutMoney(x);
                 break;
             case ERR_INSUFFICIENT:
-                insufficient(x);
+                WithdrawInsufficient(x);
+                break;
+        }
+    }
+
+    
+    private void Menu(String x) {
+        switch (x) {
+            case "ACT1":
+                break;
+            case "ACT2":
+                showBalance();
+                break;
+            case "ACT3":
+                Withdraw();
+                break;
+            case "ACT4":
+                break;
+            case "ACT5":
+                break;
+            case "ACT6":
+                Deposit();
+                break;
+            case "ACT7":
+                break;
+            case "ACT8":
+//                atmBox.getAtmScreen().show_thank_you();
+//                atmBox.getAtmScreen().show_clearing();
+                atmBox.getAtmScreen().second_load_welcome();
+                CURRENT_STATE = LOGIN_GETUSER;
                 break;
         }
     }
@@ -102,7 +137,7 @@ public class MainATM implements Observer {
     /* kalau dari showLoginGETUSER ngeklik OK atau CCL, masuk sini */
     private void loginUser(String x) throws InterruptedException {
         if (x.equals("OKACT")) {
-            getFromLabel1 = atmBox.getAtmScreen().getCursorLabelAmount();
+            getFromLabel1 = (int) atmBox.getAtmScreen().getCursorLabelAmount();
             atmBox.getAtmScreen().showGetPIN();
             CURRENT_STATE = LOGIN_GETPIN;
         } else if (x.equals("CCLACT")) {
@@ -115,7 +150,7 @@ public class MainATM implements Observer {
        ada identifikasi (AUTH USER) dari controller*/
     private void loginPIN(String x) {
         if (x.equals("OKACT")) {
-            getFromLabel2 = atmBox.getAtmScreen().getCursorLabelAmount();
+            getFromLabel2 = (int) atmBox.getAtmScreen().getCursorLabelAmount();
             if (controller.authenticateUser(getFromLabel1, getFromLabel2)) {     // AUTH USER
                 userAcc = getFromLabel1;
                 atmBox.getAtmScreen().showMenu();
@@ -130,43 +165,14 @@ public class MainATM implements Observer {
         }
     }
 
-    private void Menu(String x) {
-        switch (x) {
-            case "ACT1":
-                break;
-            case "ACT2":
-                showBalance();
-                break;
-            case "ACT3":
-                showWithdraw();
-                break;
-            case "ACT4":
-                break;
-            case "ACT5":
-                break;
-            case "ACT6":
-                atmBox.getAtmScreen().showDepositAmount();
-                CURRENT_STATE = DEPOSIT_GETAMOUNT;
-                break;
-            case "ACT7":
-                break;
-            case "ACT8":
-                atmBox.getAtmScreen().show_thank_you();
-                atmBox.getAtmScreen().show_clearing();
-                atmBox.getAtmScreen().second_load_welcome();
-                CURRENT_STATE = LOGIN_GETUSER;
-                break;
-        }
-    }
-
-    private void showBalance(){
+    private void showBalance() {
         BalanceInquiry m = (BalanceInquiry) controller.createTransaction(BALANCE_INQUIRY);
         double avail = m.getAvailableBalance();
         double total = m.getTotalBalance();
         atmBox.getAtmScreen().showBalance(userAcc, avail, total);
         CURRENT_STATE = BALANCE;
     }
-    
+
     private void Balance(String x) {
         if ("OKACT".equals(x) || "ACT4".equals(x) || "CCLACT".equals(x)) {
             atmBox.getAtmScreen().showMenu();
@@ -174,9 +180,10 @@ public class MainATM implements Observer {
         }
     }
 
-    private void DepositGetAmount(String x) {
+    private void DepositGetEnvelope(String x) {
+        double j = atmBox.getAtmScreen().getCursorLabelAmount() / 100;
         if ("OKACT".equals(x) || "ACT4".equals(x)) {
-            atmBox.getAtmScreen().showDeposit();
+            atmBox.getAtmScreen().showDepositGetEnv(j);
             CURRENT_STATE = DEPOSIT_GETENVELOPE;
         } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
             atmBox.getAtmScreen().showMenu();
@@ -184,11 +191,20 @@ public class MainATM implements Observer {
         }
     }
 
-    private void DepositGetEnvelope(String x) {
-        if ("ACT8".equals(x) || "CCLACT".equals(x)) {
-            atmBox.getAtmScreen().showMenu();
-            CURRENT_STATE = MENU;
-        } else if ("OKACT".equals(x) || "ACT4".equals(x)) {
+    private void DepositProceed(String x) {
+        Deposit d = (Deposit) controller.createTransaction(DEPOSIT);
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            switch (d.execute()) {
+                case WITHDRAW_SUCCESSFUL:
+                    atmBox.getAtmScreen().showDepositEnvelopeRCVD();
+                    CURRENT_STATE = DEPOSIT_ENV_RCVD;
+                    break;
+                case ENVELOPE_IS_NOT_RECEIVED:
+                    atmBox.getAtmScreen().showDepositEnvelopeNotRCVD();
+                    CURRENT_STATE = DEPOSIT_ENV_NRCVD;
+                    break;
+            }
+        } else if ("ACT8".equals(x) || "CCLACT".equals(x)) {
             atmBox.getAtmScreen().showMenu();
             CURRENT_STATE = MENU;
         }
@@ -196,6 +212,7 @@ public class MainATM implements Observer {
 
     private void Withdraw(String x) throws InterruptedException {
         int amount = 0;
+        int result = 0;
         Withdrawal w = (Withdrawal) controller.createTransaction(WITHDRAWAL);
         switch (x) {
             //logiknya, pakek metod amnbil, terus balik ke main menu, kl cukup uangnya
@@ -220,48 +237,73 @@ public class MainATM implements Observer {
                 break;
             case "ACT8":
             case "CCLACT":
-                atmBox.getAtmScreen().showMenu();
-                CURRENT_STATE = MENU;
                 break;
         }
-        
-        w.setAmount(amount);
-        w.setAccountNumber(userAcc);
-        int result = w.execute();
-        
-        switch(result){
-            case WITHDRAW_SUCCESSFUL :
+        if (amount > 0) {
+            w.setAmount(amount);
+            w.setAccountNumber(userAcc);
+            result = w.execute();
+        }
+
+        switch (result) {
+            case WITHDRAW_SUCCESSFUL:
                 atmBox.getAtmDispense().blink();
                 atmBox.getAtmScreen().showMenu();
                 CURRENT_STATE = MENU;
                 break;
-            case BALANCE_NOT_ENOUGH :
+            case BALANCE_NOT_ENOUGH:
                 atmBox.getAtmScreen().show_insufficientBalance(BALANCE, amount);
                 CURRENT_STATE = ERR_INSUFFICIENT;
                 break;
-            case CASHDISPENSER_NOT_ENOUGH :
+            case CASHDISPENSER_NOT_ENOUGH:
                 atmBox.getAtmScreen().show_ranOutMoney();
                 CURRENT_STATE = ERR_RAN_OUT_OF_MONEY;
                 break;
+            case 0:
+                atmBox.getAtmScreen().showMenu();
+                CURRENT_STATE = MENU;
         }
     }
 
-    private void showWithdraw(){
+    private void DepositEnvelopeReceived(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x) || "CCLACT".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void DepositEnvelopeNotReceived(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            atmBox.getAtmScreen().showDepositGetAmount();
+            CURRENT_STATE = DEPOSIT_GETAMOUNT;
+        } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void Deposit() {
+        atmBox.getAtmScreen().showDepositGetAmount();
+        CURRENT_STATE = DEPOSIT_GETAMOUNT;
+    }
+    
+    private void Withdraw() {
         atmBox.getAtmScreen().showWithdraw();
         CURRENT_STATE = WITHDRAW;
     }
-    
-    private void ranOutMoney(String x){
+
+    private void ranOutMoney(String x) {
         if ("OKACT".equals(x) || "ACT4".equals(x) || "CCLACT".equals(x)) {
             atmBox.getAtmScreen().showMenu();
             CURRENT_STATE = MENU;
         }
     }
-    
-    private void insufficient(String x){
+
+    private void WithdrawInsufficient(String x) {
         if ("OKACT".equals(x) || "ACT4".equals(x) || "CCLACT".equals(x)) {
             atmBox.getAtmScreen().showMenu();
             CURRENT_STATE = MENU;
         }
     }
+
 }

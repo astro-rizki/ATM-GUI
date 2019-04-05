@@ -36,6 +36,8 @@ public final class Constants {
     public static final int BALANCE = 3;
     public static final int DEPOSIT_GETAMOUNT = 41;
     public static final int DEPOSIT_GETENVELOPE = 42;
+    public static final int DEPOSIT_ENV_RCVD = 43;
+    public static final int DEPOSIT_ENV_NRCVD = 44;
     public static final int WITHDRAW = 5;
     public static final int LOGOUT = 6;
     public static final int ERR_RAN_OUT_OF_MONEY = 56;
