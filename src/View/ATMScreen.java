@@ -39,6 +39,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
     }
 
     public void second_load_welcome() {
+        disableAllLabel();
         botLabel1.setVisible(false);
         midLabel.setVisible(false);
         topLabel.setVisible(true);
@@ -114,12 +115,12 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         enableChoiceLabel();
         topLabel.setVisible(true);
 
-        label1.setText("");
-        label2.setText("VIEW BALANCE");
-        label3.setText("WITHDRAWAL");
+        label1.setText("VIEW BALANCE");
+        label2.setText("WITHDRAWAL");
+        label3.setText("DEPOSIT");
         label4.setText("");
-        label5.setText("");
-        label6.setText("DEPOSIT");
+        label5.setText("TRANSFER N/A");
+        label6.setText("CHANGE PIN");
         label7.setText("");
         label8.setText("EXIT");
         topLabel.setText("SELECT TRANSACTION");
@@ -262,6 +263,49 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
 
         super.repaint();
     }
+    
+    public void showChangePIN(){
+        disableAllLabel();
+        showOKandCancel();
+        topLabel.setText("Change PIN");
+        midleft1.setText("Please insert your");
+        midleft2.setText("current PIN  :");
+        midright2.setText("");
+        topLabel.setVisible(true);
+        midleft1.setVisible(true);
+        midleft2.setVisible(true);
+        midright2.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showChangePIN_GETNew(){
+        midleft1.setText("Insert your new PIN:");
+        midright1.setText("");
+        midleft2.setVisible(false);
+        midright2.setVisible(false);
+        midright1.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showChangePIN_GETNewAgain(){
+        midleft2.setText("Re-insert your new PIN:");
+        midright2.setText("");
+        midright2.setVisible(true);
+        midleft2.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showChangePIN_Success(){
+        midleft1.setText("Your PIN has changed");
+        midleft2.setVisible(false);
+        midright1.setVisible(false);
+        midright2.setVisible(false);
+        label8.setVisible(false);
+        super.repaint();
+    }
 
     private String printDollarAmount(double amount) {
         return String.format("$%,.2f", amount);
@@ -353,6 +397,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         setLabel(x);
     }
 
+    
     private void setLabel(int x) {
         switch (cursorPosition) {
             case "TOP":
@@ -556,7 +601,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setForeground(new java.awt.Color(255, 255, 255));
         topLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         topLabel.setText("TOP LABEL");
-        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 510, -1));
+        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 510, -1));
 
         getAccessibleContext().setAccessibleParent(this);
     }// </editor-fold>//GEN-END:initComponents

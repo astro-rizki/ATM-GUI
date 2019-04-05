@@ -13,44 +13,46 @@ import java.util.ArrayList;
  * @author Annazar
  */
 public class BankDatabase {
-    
+
     private ArrayList<Account> accounts; // array of Accounts
-    
+
     public BankDatabase() {
         accounts = new ArrayList<Account>();
-	accounts.add(new Account(1234, 4321, 1000.0, 1200.0));
-	accounts.add(new Account(8765, 5678, 200.0, 200.0));
+        accounts.add(new Account(1234, 4321, 1000.0, 1200.0));
+        accounts.add(new Account(8765, 5678, 200.0, 200.0));
     }
-    
+
     public Account getAccount(int accountNumber) {
-	int i;
+        int i;
         for (i = 0; i < accounts.size(); i++) {
             if (accounts.get(i).getAccountNumber() == accountNumber) {
                 return accounts.get(i);
             }
-        } 
+        }
         return null; // if no matching account was found, return null
     }
-    
-    public int authenticateUser(int userAccountNumber, int userPIN)
-    {
-	Account userAccount = getAccount(userAccountNumber);
-	
-	if(userAccount != null)
-	{
-	    if(userAccount.getPin() == userPIN)
-	    {
-		return 1;
-	    }
-	    else
-	    {
-		return 2;
-	    }
-	}
-	else
-	{
-	    return 2;
-	}
+
+    public int authenticateUser(int userAccountNumber, int userPIN) {
+        Account userAccount = getAccount(userAccountNumber);
+
+        if (userAccount != null) {
+            if (userAccount.getPin() == userPIN) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } else {
+            return 2;
+        }
     }
-   
+
+    public boolean updatePIN(int userAccountNumber, int userPIN) {
+        Account userAccount = getAccount(userAccountNumber);
+        try {
+            userAccount.setPin(userPIN);
+            return true;
+        } catch (Exception o) {
+            return false;
+        }
+    }
 }

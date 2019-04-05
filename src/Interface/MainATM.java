@@ -96,6 +96,18 @@ public class MainATM implements Observer {
             case WITHDRAW:
                 Withdraw(x);
                 break;
+            case CHANGE_PIN:
+                ChangePIN(x);
+                break;
+            case CHANGE_PIN_GETNEW:
+                ChangePINGetNew(x);
+                break;
+            case CHANGE_PIN_GETNEW_AGAIN:
+                ChangePINGetNewAgain(x);
+                break;
+            case CHANGE_PIN_SUCCESS:
+                ChangePINSuccess(x);
+                break;
             case ERR_RAN_OUT_OF_MONEY:
                 ranOutMoney(x);
                 break;
@@ -105,23 +117,23 @@ public class MainATM implements Observer {
         }
     }
 
-    
     private void Menu(String x) {
         switch (x) {
             case "ACT1":
-                break;
-            case "ACT2":
                 showBalance();
                 break;
+            case "ACT2":
+                showWithdraw();
+                break;
             case "ACT3":
-                Withdraw();
+                showDeposit();
                 break;
             case "ACT4":
                 break;
             case "ACT5":
                 break;
             case "ACT6":
-                Deposit();
+                showChangePIN();
                 break;
             case "ACT7":
                 break;
@@ -193,6 +205,7 @@ public class MainATM implements Observer {
 
     private void DepositProceed(String x) {
         Deposit d = (Deposit) controller.createTransaction(DEPOSIT);
+        d.setAmount(atmBox.getAtmScreen().getCursorLabelAmount()/100);
         if ("OKACT".equals(x) || "ACT4".equals(x)) {
             switch (d.execute()) {
                 case WITHDRAW_SUCCESSFUL:
@@ -282,12 +295,12 @@ public class MainATM implements Observer {
         }
     }
 
-    private void Deposit() {
+    private void showDeposit() {
         atmBox.getAtmScreen().showDepositGetAmount();
         CURRENT_STATE = DEPOSIT_GETAMOUNT;
     }
-    
-    private void Withdraw() {
+
+    private void showWithdraw() {
         atmBox.getAtmScreen().showWithdraw();
         CURRENT_STATE = WITHDRAW;
     }
@@ -304,6 +317,69 @@ public class MainATM implements Observer {
             atmBox.getAtmScreen().showMenu();
             CURRENT_STATE = MENU;
         }
+    }
+
+    private void ChangePIN(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            int j = (int) atmBox.getAtmScreen().getCursorLabelAmount();
+            if (controller.authenticateUser(controller.getCurrentAccountNumber(), j)) {
+                atmBox.getAtmScreen().showChangePIN_GETNew();
+                CURRENT_STATE = CHANGE_PIN_GETNEW;
+            } else {
+                atmBox.getAtmScreen().showChangePIN();
+                CURRENT_STATE = CHANGE_PIN;
+            }
+        } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void ChangePINGetNew(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            getFromLabel1 = (int) atmBox.getAtmScreen().getCursorLabelAmount();
+            atmBox.getAtmScreen().showChangePIN_GETNewAgain();
+            CURRENT_STATE = CHANGE_PIN_GETNEW_AGAIN;
+        } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void ChangePINGetNewAgain(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            getFromLabel2 = (int) atmBox.getAtmScreen().getCursorLabelAmount();
+            if(getFromLabel1 == getFromLabel2){
+                ChangePIN c = (ChangePIN) controller.createTransaction(UPDATE_PIN);
+                c.setNewPIN(getFromLabel1);
+                switch(c.execute()){
+                    case CHANGE_PIN_SUCCESS:
+                        atmBox.getAtmScreen().showChangePIN_Success();
+                        CURRENT_STATE = CHANGE_PIN_SUCCESS;
+                        break;
+                    case CHANGE_PIN_FAIL:
+                        //what makes fail?
+                        break;
+                }
+            } else {
+                //tambah kalo ga match pin pin
+            }
+        } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void ChangePINSuccess(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x) || "CCLACT".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void showChangePIN() {
+        atmBox.getAtmScreen().showChangePIN();
+        CURRENT_STATE = CHANGE_PIN;
     }
 
 }

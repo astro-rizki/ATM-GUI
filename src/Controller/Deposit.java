@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.DepositSlot;
 import Model.Account;
 import static Model.Constants.*;
 

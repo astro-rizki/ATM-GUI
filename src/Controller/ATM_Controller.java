@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.DepositSlot;
 import Model.*;
 import static Model.Constants.*;
 
@@ -57,6 +58,14 @@ public class ATM_Controller {
 	    case DEPOSIT:
 		temp = new Deposit(
 			getCurrentAccountNumber(), bankDatabase, depositSlot);
+		break;
+            case TRANSFERS:
+                temp = new Transfer(
+			getCurrentAccountNumber(), bankDatabase);
+		break;
+            case UPDATE_PIN:
+                temp = new ChangePIN(
+			getCurrentAccountNumber(), bankDatabase);
 		break;
 	}
 
