@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Model.DepositSlot;
 import Model.*;
 import static Model.Constants.*;
 
@@ -87,5 +86,13 @@ public class ATM_Controller {
 
     public void setCurrentAccountNumber(int currentAccountNumber) {
         this.currentAccountNumber = currentAccountNumber;
+    }
+
+    public boolean isTransferSufficent(int userAccount, double amount) {
+        return bankDatabase.getAccount(userAccount).getAvailableBalance() > amount;
+    }
+    
+    public boolean isAccountAda(int accountNumber){
+        return bankDatabase.isAccountExist(accountNumber);
     }
 }

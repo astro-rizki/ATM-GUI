@@ -141,6 +141,38 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setText("WITHDRAWAL");
     }
 
+    public void showTransferGetAccount() {
+        disableChoiceLabel();
+        showOKandCancel();
+        topLabel.setText("TRANSFER");
+        midleft1.setText("Destination Account :");
+        midright1.setText("");
+        topLabel.setVisible(true);
+        midleft1.setVisible(true);
+        midright1.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showTransferGetAmount() {
+        label4.setText("PROCEED");
+        midleft2.setText("Amount                       :");
+        midright2.setText(printDollarAmount(0));
+        midleft2.setVisible(true);
+        midright2.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showTransferSuccess() {
+        midleft1.setText("Transfer Succeed!");
+        midleft2.setText("");
+        midright1.setText("");
+        midright2.setText("");
+        setCurrentCursor();
+        super.repaint();
+    }
+    
     public void showDepositGetAmount() {
         disableChoiceLabel();
         showOKandCancel();
@@ -632,4 +664,5 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         }
     }
 
+    
 }

@@ -114,6 +114,15 @@ public class MainATM implements Observer {
             case ERR_INSUFFICIENT:
                 WithdrawInsufficient(x);
                 break;
+            case TRANSFER_GET_ACCOUNT:
+                TransferGetAccount(x);
+                break;
+            case TRANSFER_GET_AMOUNT:
+                TransferGetAmount(x);
+                break;
+            case TRANSFER_SUCCESS:
+                TransferShowSucceed(x);
+                break;
         }
     }
 
@@ -131,6 +140,7 @@ public class MainATM implements Observer {
             case "ACT4":
                 break;
             case "ACT5":
+                showTransferGetAccount();
                 break;
             case "ACT6":
                 showChangePIN();
@@ -205,7 +215,7 @@ public class MainATM implements Observer {
 
     private void DepositProceed(String x) {
         Deposit d = (Deposit) controller.createTransaction(DEPOSIT);
-        d.setAmount(atmBox.getAtmScreen().getCursorLabelAmount()/100);
+        d.setAmount(atmBox.getAtmScreen().getCursorLabelAmount() / 100);
         if ("OKACT".equals(x) || "ACT4".equals(x)) {
             switch (d.execute()) {
                 case WITHDRAW_SUCCESSFUL:
@@ -349,10 +359,10 @@ public class MainATM implements Observer {
     private void ChangePINGetNewAgain(String x) {
         if ("OKACT".equals(x) || "ACT4".equals(x)) {
             getFromLabel2 = (int) atmBox.getAtmScreen().getCursorLabelAmount();
-            if(getFromLabel1 == getFromLabel2){
+            if (getFromLabel1 == getFromLabel2) {
                 ChangePIN c = (ChangePIN) controller.createTransaction(UPDATE_PIN);
                 c.setNewPIN(getFromLabel1);
-                switch(c.execute()){
+                switch (c.execute()) {
                     case CHANGE_PIN_SUCCESS:
                         atmBox.getAtmScreen().showChangePIN_Success();
                         CURRENT_STATE = CHANGE_PIN_SUCCESS;
@@ -380,6 +390,52 @@ public class MainATM implements Observer {
     private void showChangePIN() {
         atmBox.getAtmScreen().showChangePIN();
         CURRENT_STATE = CHANGE_PIN;
+    }
+
+    private void showTransferGetAccount() {
+        atmBox.getAtmScreen().showTransferGetAccount();
+        CURRENT_STATE = TRANSFER_GET_ACCOUNT;
+    }
+
+    private void TransferGetAccount(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            getFromLabel1 = (int) atmBox.getAtmScreen().getCursorLabelAmount();
+            // periksa apakah akun ada
+            if (controller.isAccountAda(getFromLabel1)) {
+                atmBox.getAtmScreen().showTransferGetAmount();
+                CURRENT_STATE = TRANSFER_GET_AMOUNT;
+            }
+        } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void TransferGetAmount(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x)) {
+            double amount = atmBox.getAtmScreen().getCursorLabelAmount();
+            //periksa saldo cukup ga
+            if (controller.isTransferSufficent(userAcc, amount / 100)) {
+                Transfer t = (Transfer) controller.createTransaction(TRANSFERS);
+                t.setTargetAccNum(getFromLabel1);
+                t.setAmount(amount / 100);
+                //go to transfer succeed
+                if (t.execute() == TRANSFER_SUCCESS) {
+                    atmBox.getAtmScreen().showTransferSuccess();
+                    CURRENT_STATE = TRANSFER_SUCCESS;
+                }
+            }
+        } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
+    }
+
+    private void TransferShowSucceed(String x) {
+        if ("OKACT".equals(x) || "ACT4".equals(x) || "CCLACT".equals(x)) {
+            atmBox.getAtmScreen().showMenu();
+            CURRENT_STATE = MENU;
+        }
     }
 
 }

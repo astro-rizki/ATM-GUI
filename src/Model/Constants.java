@@ -46,7 +46,10 @@ public final class Constants {
     public static final int DEPOSIT_ENV_RCVD = 43;
     public static final int DEPOSIT_ENV_NRCVD = 44;
     public static final int WITHDRAW = 5;
-    public static final int TRANSFER = 6;
+    public static final int TRANSFER_GET_ACCOUNT = 61;
+    public static final int TRANSFER_GET_AMOUNT = 62;
+    public static final int TRANSFER_SUCCESS = 63;
+    public static final int TRANSFER_FAIL = 64;
     public static final int CHANGE_PIN = 7;
     public static final int CHANGE_PIN_GETNEW = 711;
     public static final int CHANGE_PIN_GETNEW_AGAIN = 712;
