@@ -49,49 +49,26 @@ public class ATMFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        screenPanel = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        OuterKeypadPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         keypadPanel = new javax.swing.JPanel();
         dispensePanel = new javax.swing.JPanel();
+        screenPanel = new javax.swing.JPanel();
+        OuterKeypadPanel = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(102, 102, 102));
-        setMinimumSize(new java.awt.Dimension(1030, 1010));
+        setMaximumSize(new java.awt.Dimension(660, 670));
+        setMinimumSize(new java.awt.Dimension(660, 670));
         setUndecorated(true);
         setResizable(false);
-        setSize(new java.awt.Dimension(0, 0));
+        setSize(new java.awt.Dimension(660, 690));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        screenPanel.setBackground(new java.awt.Color(255, 255, 255));
-        screenPanel.setLayout(new java.awt.CardLayout());
-        getContentPane().add(screenPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 750, 460));
-        screenPanel.getAccessibleContext().setAccessibleName("screenPanel");
-
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
-
-        org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 990, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 10, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 990, 10));
-
-        OuterKeypadPanel.setBackground(new java.awt.Color(153, 153, 153));
-        OuterKeypadPanel.setMinimumSize(new java.awt.Dimension(990, 440));
-        OuterKeypadPanel.setLayout(new java.awt.GridBagLayout());
-        getContentPane().add(OuterKeypadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 990, 490));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setMinimumSize(new java.awt.Dimension(1030, 1000));
+        jPanel1.setPreferredSize(new java.awt.Dimension(660, 690));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
@@ -103,26 +80,51 @@ public class ATMFrame extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 240, Short.MAX_VALUE)
+            .add(0, 190, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 330, Short.MAX_VALUE)
+            .add(0, 250, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 240, 330));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 190, 250));
 
         keypadPanel.setBackground(new java.awt.Color(255, 255, 255));
         keypadPanel.setLayout(new java.awt.CardLayout());
-        jPanel3.add(keypadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 520, 330));
+        jPanel3.add(keypadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 350, 250));
 
         dispensePanel.setBackground(new java.awt.Color(255, 255, 255));
         dispensePanel.setLayout(new java.awt.CardLayout());
-        jPanel3.add(dispensePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 790, 40));
+        jPanel3.add(dispensePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 560, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, 830, 420));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 600, 310));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 1000));
+        screenPanel.setBackground(new java.awt.Color(255, 255, 255));
+        screenPanel.setLayout(new java.awt.CardLayout());
+        jPanel1.add(screenPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 440, 300));
+        screenPanel.getAccessibleContext().setAccessibleName("screenPanel");
+
+        OuterKeypadPanel.setBackground(new java.awt.Color(153, 153, 153));
+        OuterKeypadPanel.setMinimumSize(new java.awt.Dimension(990, 440));
+        OuterKeypadPanel.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel1.add(OuterKeypadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 620, 320));
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+
+        org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 620, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 10, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 620, 10));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

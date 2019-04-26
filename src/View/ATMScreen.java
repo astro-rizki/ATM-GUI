@@ -156,7 +156,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
     
     public void showTransferGetAmount() {
         label4.setText("PROCEED");
-        midleft2.setText("Amount                       :");
+        midleft2.setText("Amount    :");
         midright2.setText(printDollarAmount(0));
         midleft2.setVisible(true);
         midright2.setVisible(true);
@@ -534,106 +534,109 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 153));
-        setMaximumSize(new java.awt.Dimension(770, 470));
-        setMinimumSize(new java.awt.Dimension(750, 460));
-        setPreferredSize(new java.awt.Dimension(750, 460));
+        setMaximumSize(new java.awt.Dimension(440, 300));
+        setMinimumSize(new java.awt.Dimension(440, 300));
+        setPreferredSize(new java.awt.Dimension(440, 300));
+        setVerifyInputWhenFocusTarget(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        label8.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label8.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label8.setForeground(new java.awt.Color(255, 255, 255));
         label8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label8.setText("LABEL8");
-        add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 270, -1));
+        add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 20));
 
-        midLabel.setFont(new java.awt.Font("OCR-A BT", 1, 42)); // NOI18N
+        midLabel.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
         midLabel.setForeground(new java.awt.Color(255, 255, 255));
         midLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         midLabel.setText("MID LABEL");
-        add(midLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 510, -1));
+        add(midLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 440, -1));
 
-        midleft2.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        midleft2.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         midleft2.setForeground(new java.awt.Color(255, 255, 255));
         midleft2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         midleft2.setText("LABEL B :");
-        add(midleft2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 410, -1));
+        add(midleft2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 220, -1));
 
-        label6.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label6.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label6.setForeground(new java.awt.Color(255, 255, 255));
         label6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label6.setText("LABEL6");
-        add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, -1));
+        add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 20));
 
-        label7.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label7.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label7.setForeground(new java.awt.Color(255, 255, 255));
         label7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label7.setText("LABEL7");
-        add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 270, -1));
+        add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 160, 20));
 
-        label4.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label4.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label4.setForeground(new java.awt.Color(255, 255, 255));
         label4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         label4.setText("LABEL4");
-        add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 270, -1));
+        add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 140, -1));
 
-        label1.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label1.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         label1.setText("LABEL1");
-        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 270, -1));
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 140, -1));
 
-        label2.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label2.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label2.setForeground(new java.awt.Color(255, 255, 255));
         label2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         label2.setText("LABEL2");
-        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 270, -1));
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 140, -1));
 
-        label3.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label3.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label3.setForeground(new java.awt.Color(255, 255, 255));
         label3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         label3.setText("LABEL3");
-        add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 270, -1));
+        add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 140, -1));
 
-        botLabel1.setFont(new java.awt.Font("OCR-A BT", 1, 22)); // NOI18N
+        botLabel1.setFont(new java.awt.Font("OCR-A BT", 1, 12)); // NOI18N
         botLabel1.setForeground(new java.awt.Color(255, 255, 255));
         botLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botLabel1.setText("BOTTOM 1");
-        add(botLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 510, -1));
+        botLabel1.setPreferredSize(new java.awt.Dimension(60, 15));
+        add(botLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 440, -1));
 
-        midleft1.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        midleft1.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         midleft1.setForeground(new java.awt.Color(255, 255, 255));
         midleft1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         midleft1.setText("LABEL A :");
-        add(midleft1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 410, -1));
+        add(midleft1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, -1));
 
-        label5.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        label5.setFont(new java.awt.Font("OCR-A BT", 1, 16)); // NOI18N
         label5.setForeground(new java.awt.Color(255, 255, 255));
         label5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label5.setText("LABEL5");
-        add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 270, -1));
+        add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 160, 20));
 
-        midright1.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
+        midright1.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         midright1.setForeground(new java.awt.Color(255, 255, 255));
         midright1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         midright1.setText("-");
-        add(midright1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 140, -1));
+        add(midright1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 110, 10));
 
-        midright2.setFont(new java.awt.Font("OCR-A BT", 1, 18)); // NOI18N
+        midright2.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         midright2.setForeground(new java.awt.Color(255, 255, 255));
         midright2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         midright2.setText("****");
-        add(midright2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 240, -1));
+        add(midright2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 110, -1));
 
-        botLabel2.setFont(new java.awt.Font("OCR-A BT", 1, 20)); // NOI18N
+        botLabel2.setFont(new java.awt.Font("OCR-A BT", 1, 12)); // NOI18N
         botLabel2.setForeground(new java.awt.Color(255, 255, 255));
         botLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botLabel2.setText("BOTTOM 2");
-        add(botLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 510, -1));
+        botLabel2.setPreferredSize(new java.awt.Dimension(60, 15));
+        add(botLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 440, -1));
 
-        topLabel.setFont(new java.awt.Font("OCR-A BT", 1, 42)); // NOI18N
+        topLabel.setFont(new java.awt.Font("OCR-A BT", 1, 24)); // NOI18N
         topLabel.setForeground(new java.awt.Color(255, 255, 255));
         topLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         topLabel.setText("TOP LABEL");
-        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 730, -1));
+        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 440, -1));
 
         getAccessibleContext().setAccessibleParent(this);
     }// </editor-fold>//GEN-END:initComponents

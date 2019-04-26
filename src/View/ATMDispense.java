@@ -14,7 +14,8 @@ import javax.swing.Timer;
  */
 public class ATMDispense extends javax.swing.JPanel {
 
-    private Timer tm;
+    private static Timer tm;
+    private boolean blinkOn = false;
 
     public ATMDispense() {
         initComponents();
@@ -39,23 +40,26 @@ public class ATMDispense extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(153, 153, 153));
-        setMinimumSize(new java.awt.Dimension(790, 40));
+        setMinimumSize(new java.awt.Dimension(790, 30));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(570, 30));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         LED_Panel.setBackground(new java.awt.Color(0, 153, 0));
         LED_Panel.setForeground(new java.awt.Color(0, 153, 0));
+        LED_Panel.setPreferredSize(new java.awt.Dimension(126, 5));
 
         javax.swing.GroupLayout LED_PanelLayout = new javax.swing.GroupLayout(LED_Panel);
         LED_Panel.setLayout(LED_PanelLayout);
         LED_PanelLayout.setHorizontalGroup(
             LED_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 166, Short.MAX_VALUE)
+            .addGap(0, 126, Short.MAX_VALUE)
         );
         LED_PanelLayout.setVerticalGroup(
             LED_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -63,9 +67,9 @@ public class ATMDispense extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(316, Short.MAX_VALUE)
+                .addContainerGap(224, Short.MAX_VALUE)
                 .addComponent(LED_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(308, 308, 308))
+                .addGap(220, 220, 220))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,7 +78,7 @@ public class ATMDispense extends javax.swing.JPanel {
                 .addComponent(LED_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 10));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 5));
 
         jPanel6.setBackground(new java.awt.Color(102, 102, 255));
         jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -87,14 +91,14 @@ public class ATMDispense extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 670, 30));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 15, 480, 30));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -102,29 +106,30 @@ public class ATMDispense extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 790, 10));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 570, 5));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setPreferredSize(new java.awt.Dimension(20, 30));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 40, 40));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 20, 30));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -132,36 +137,38 @@ public class ATMDispense extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 30));
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel5.setMinimumSize(new java.awt.Dimension(470, 20));
-        jPanel5.setPreferredSize(new java.awt.Dimension(470, 20));
+        jPanel5.setMaximumSize(new java.awt.Dimension(470, 15));
+        jPanel5.setMinimumSize(new java.awt.Dimension(470, 15));
+        jPanel5.setPreferredSize(new java.awt.Dimension(470, 10));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGap(0, 15, Short.MAX_VALUE)
         );
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 690, 10));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 10, 500, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         jPanel6.setVisible(false);
         stopBlink();
+        blinkOn = false;
         super.repaint();
     }//GEN-LAST:event_jPanel6MouseClicked
 
@@ -172,21 +179,25 @@ public class ATMDispense extends javax.swing.JPanel {
         LED_Panel.repaint();
         jPanel6.setVisible(true);
 
-        tm = new javax.swing.Timer(550, new ActionListener() {
-            boolean on = true;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(on){
-                    on = false;
-                    LED_Panel.setBackground(new java.awt.Color(0, 255, 0));
-                    LED_Panel.repaint();
-                } else {
-                    on = true;
-                    LED_Panel.setBackground(new java.awt.Color(0, 135, 0));
-                    LED_Panel.repaint();
+        if (!blinkOn) {
+            tm = new javax.swing.Timer(550, new ActionListener() {
+                boolean on = true;
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (on) {
+                        on = false;
+                        LED_Panel.setBackground(new java.awt.Color(0, 255, 0));
+                        LED_Panel.repaint();
+                    } else {
+                        on = true;
+                        LED_Panel.setBackground(new java.awt.Color(0, 135, 0));
+                        LED_Panel.repaint();
+                    }
                 }
-            }
-        });
+            });
+        }
+        blinkOn = true;
         tm.start();
     }
 

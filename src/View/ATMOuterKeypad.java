@@ -27,35 +27,17 @@ public class ATMOuterKeypad extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        button1 = new javax.swing.JButton();
-        button8 = new javax.swing.JButton();
         button5 = new javax.swing.JButton();
-        button3 = new javax.swing.JButton();
-        button2 = new javax.swing.JButton();
         button6 = new javax.swing.JButton();
         button7 = new javax.swing.JButton();
+        button8 = new javax.swing.JButton();
+        button1 = new javax.swing.JButton();
+        button2 = new javax.swing.JButton();
+        button3 = new javax.swing.JButton();
         button4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        button1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button1MouseClicked(evt);
-            }
-        });
-        add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 130, 100, 70));
-        button1.getAccessibleContext().setAccessibleParent(this);
-
-        button8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        button8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button8MouseClicked(evt);
-            }
-        });
-        add(button8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, 70));
-        button8.getAccessibleContext().setAccessibleParent(this);
 
         button5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         button5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -63,26 +45,8 @@ public class ATMOuterKeypad extends javax.swing.JPanel {
                 button5MouseClicked(evt);
             }
         });
-        add(button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 100, 70));
+        add(button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 50));
         button5.getAccessibleContext().setAccessibleParent(this);
-
-        button3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        button3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button3MouseClicked(evt);
-            }
-        });
-        add(button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 310, 100, 70));
-        button3.getAccessibleContext().setAccessibleParent(this);
-
-        button2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        button2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button2MouseClicked(evt);
-            }
-        });
-        add(button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 220, 100, 70));
-        button2.getAccessibleContext().setAccessibleParent(this);
 
         button6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         button6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,7 +54,7 @@ public class ATMOuterKeypad extends javax.swing.JPanel {
                 button6MouseClicked(evt);
             }
         });
-        add(button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, 70));
+        add(button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, 50));
         button6.getAccessibleContext().setAccessibleParent(this);
 
         button7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -99,8 +63,44 @@ public class ATMOuterKeypad extends javax.swing.JPanel {
                 button7MouseClicked(evt);
             }
         });
-        add(button7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 100, 70));
+        add(button7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 70, 50));
         button7.getAccessibleContext().setAccessibleParent(this);
+
+        button8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        button8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button8MouseClicked(evt);
+            }
+        });
+        add(button8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 70, 50));
+        button8.getAccessibleContext().setAccessibleParent(this);
+
+        button1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
+        add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 70, 50));
+        button1.getAccessibleContext().setAccessibleParent(this);
+
+        button2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        button2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button2MouseClicked(evt);
+            }
+        });
+        add(button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 70, 50));
+        button2.getAccessibleContext().setAccessibleParent(this);
+
+        button3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        button3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button3MouseClicked(evt);
+            }
+        });
+        add(button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 70, 50));
+        button3.getAccessibleContext().setAccessibleParent(this);
 
         button4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         button4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,46 +108,46 @@ public class ATMOuterKeypad extends javax.swing.JPanel {
                 button4MouseClicked(evt);
             }
         });
-        add(button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 400, 100, 70));
+        add(button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 70, 50));
         button4.getAccessibleContext().setAccessibleParent(this);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setMinimumSize(new java.awt.Dimension(990, 440));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 320));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT5");
-    }//GEN-LAST:event_button5MouseClicked
-
-    private void button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button6MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT6");
-    }//GEN-LAST:event_button6MouseClicked
-
-    private void button7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button7MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT7");
-    }//GEN-LAST:event_button7MouseClicked
-
-    private void button8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button8MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT8");
-    }//GEN-LAST:event_button8MouseClicked
-
-    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT1");
-    }//GEN-LAST:event_button1MouseClicked
-
-    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT2");
-    }//GEN-LAST:event_button2MouseClicked
+    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT4");
+    }//GEN-LAST:event_button4MouseClicked
 
     private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked
         outerKeypadAdapter.setActionSelected("ACT3");
     }//GEN-LAST:event_button3MouseClicked
 
-    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
-        outerKeypadAdapter.setActionSelected("ACT4");
-    }//GEN-LAST:event_button4MouseClicked
+    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT2");
+    }//GEN-LAST:event_button2MouseClicked
+
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT1");
+    }//GEN-LAST:event_button1MouseClicked
+
+    private void button8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button8MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT8");
+    }//GEN-LAST:event_button8MouseClicked
+
+    private void button7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button7MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT7");
+    }//GEN-LAST:event_button7MouseClicked
+
+    private void button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button6MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT6");
+    }//GEN-LAST:event_button6MouseClicked
+
+    private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
+        outerKeypadAdapter.setActionSelected("ACT5");
+    }//GEN-LAST:event_button5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
