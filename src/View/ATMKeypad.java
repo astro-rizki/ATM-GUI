@@ -46,9 +46,9 @@ public class ATMKeypad extends javax.swing.JPanel {
         btn_clr = new java.awt.Button();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setMaximumSize(new java.awt.Dimension(520, 330));
-        setMinimumSize(new java.awt.Dimension(520, 330));
-        setPreferredSize(new java.awt.Dimension(520, 330));
+        setMaximumSize(new java.awt.Dimension(350, 220));
+        setMinimumSize(new java.awt.Dimension(350, 220));
+        setPreferredSize(new java.awt.Dimension(350, 220));
         setRequestFocusEnabled(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -56,7 +56,7 @@ public class ATMKeypad extends javax.swing.JPanel {
         empt_left.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         empt_left.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         empt_left.setMultiClickThreshhold(1);
-        add(empt_left, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 80, 70));
+        add(empt_left, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 60, 50));
 
         btn1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn1.setText("1");
@@ -73,7 +73,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn1ActionPerformed(evt);
             }
         });
-        add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 70));
+        add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 50));
 
         btn4.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn4.setText("4");
@@ -85,7 +85,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn4MouseClicked(evt);
             }
         });
-        add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 80, 70));
+        add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 60, 50));
 
         btn7.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn7.setText("7");
@@ -97,7 +97,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn7ActionPerformed(evt);
             }
         });
-        add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 80, 70));
+        add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 60, -1));
 
         btn0.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn0.setText("0");
@@ -109,7 +109,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn0MouseClicked(evt);
             }
         });
-        add(btn0, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 80, 70));
+        add(btn0, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 60, 50));
 
         btn2.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn2.setText("2");
@@ -121,7 +121,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn2MouseClicked(evt);
             }
         });
-        add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 80, 70));
+        add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 60, 50));
 
         btn5.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn5.setText("5");
@@ -133,7 +133,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn5MouseClicked(evt);
             }
         });
-        add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, 70));
+        add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 60, 50));
 
         btn8.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn8.setText("8");
@@ -145,13 +145,13 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn8MouseClicked(evt);
             }
         });
-        add(btn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 80, 70));
+        add(btn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 60, -1));
 
         empt_right.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         empt_right.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         empt_right.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         empt_right.setMultiClickThreshhold(1);
-        add(empt_right, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 80, 70));
+        add(empt_right, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 60, 50));
 
         btn3.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn3.setText("3");
@@ -163,7 +163,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn3MouseClicked(evt);
             }
         });
-        add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 80, 70));
+        add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 60, 50));
 
         btn6.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn6.setText("6");
@@ -175,7 +175,7 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn6MouseClicked(evt);
             }
         });
-        add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 80, 70));
+        add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 60, 50));
 
         btn9.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         btn9.setText("9");
@@ -187,22 +187,22 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn9MouseClicked(evt);
             }
         });
-        add(btn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 80, 70));
+        add(btn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 60, -1));
 
         btn_del.setBackground(new java.awt.Color(204, 204, 0));
         btn_del.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_del.setFont(new java.awt.Font("DialogInput", 1, 33)); // NOI18N
+        btn_del.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         btn_del.setLabel("DELETE");
         btn_del.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_delMouseClicked(evt);
             }
         });
-        add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 170, 70));
+        add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 110, 50));
 
         btn_ok.setBackground(new java.awt.Color(0, 204, 51));
         btn_ok.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_ok.setFont(new java.awt.Font("DialogInput", 1, 33)); // NOI18N
+        btn_ok.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         btn_ok.setLabel("OK");
         btn_ok.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -214,11 +214,11 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn_okActionPerformed(evt);
             }
         });
-        add(btn_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 170, 70));
+        add(btn_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 110, 50));
 
         btn_ccl.setBackground(new java.awt.Color(204, 0, 0));
         btn_ccl.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_ccl.setFont(new java.awt.Font("DialogInput", 1, 33)); // NOI18N
+        btn_ccl.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         btn_ccl.setLabel("CANCEL");
         btn_ccl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -230,18 +230,18 @@ public class ATMKeypad extends javax.swing.JPanel {
                 btn_cclActionPerformed(evt);
             }
         });
-        add(btn_ccl, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 170, 70));
+        add(btn_ccl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 110, 50));
 
         btn_clr.setBackground(new java.awt.Color(51, 153, 255));
         btn_clr.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_clr.setFont(new java.awt.Font("DialogInput", 1, 33)); // NOI18N
+        btn_clr.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         btn_clr.setLabel("CLEAR");
         btn_clr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_clrMouseClicked(evt);
             }
         });
-        add(btn_clr, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 170, 70));
+        add(btn_clr, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 110, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
