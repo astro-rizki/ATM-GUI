@@ -32,6 +32,16 @@ public class BankDatabase {
         return null; // if no matching account was found, return null
     }
 
+    public boolean isAccountExist(int accountNumber) {
+        for (Account a : this.accounts) {
+            if (a.getAccountNumber() == accountNumber) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public int authenticateUser(int userAccountNumber, int userPIN) {
         Account userAccount = getAccount(userAccountNumber);
 

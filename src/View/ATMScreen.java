@@ -119,7 +119,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         label2.setText("WITHDRAWAL");
         label3.setText("DEPOSIT");
         label4.setText("");
-        label5.setText("TRANSFER N/A");
+        label5.setText("TRANSFER");
         label6.setText("CHANGE PIN");
         label7.setText("");
         label8.setText("EXIT");
@@ -141,6 +141,38 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setText("WITHDRAWAL");
     }
 
+    public void showTransferGetAccount() {
+        disableChoiceLabel();
+        showOKandCancel();
+        topLabel.setText("TRANSFER");
+        midleft1.setText("Destination Account :");
+        midright1.setText("");
+        topLabel.setVisible(true);
+        midleft1.setVisible(true);
+        midright1.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showTransferGetAmount() {
+        label4.setText("PROCEED");
+        midleft2.setText("Amount                       :");
+        midright2.setText(printDollarAmount(0));
+        midleft2.setVisible(true);
+        midright2.setVisible(true);
+        setCurrentCursor();
+        super.repaint();
+    }
+    
+    public void showTransferSuccess() {
+        midleft1.setText("Transfer Succeed!");
+        midleft2.setText("");
+        midright1.setText("");
+        midright2.setText("");
+        setCurrentCursor();
+        super.repaint();
+    }
+    
     public void showDepositGetAmount() {
         disableChoiceLabel();
         showOKandCancel();
@@ -601,7 +633,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setForeground(new java.awt.Color(255, 255, 255));
         topLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         topLabel.setText("TOP LABEL");
-        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 510, -1));
+        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 730, -1));
 
         getAccessibleContext().setAccessibleParent(this);
     }// </editor-fold>//GEN-END:initComponents
@@ -632,4 +664,5 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         }
     }
 
+    
 }
