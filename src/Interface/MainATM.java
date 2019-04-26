@@ -275,7 +275,7 @@ public class MainATM implements Observer {
                 CURRENT_STATE = MENU;
                 break;
             case BALANCE_NOT_ENOUGH:
-                atmBox.getAtmScreen().show_insufficientBalance(BALANCE, amount);
+                atmBox.getAtmScreen().show_insufficientBalance(controller.getCurrentAccountBalance(),amount);
                 CURRENT_STATE = ERR_INSUFFICIENT;
                 break;
             case CASHDISPENSER_NOT_ENOUGH:
@@ -404,6 +404,9 @@ public class MainATM implements Observer {
             if (controller.isAccountAda(getFromLabel1)) {
                 atmBox.getAtmScreen().showTransferGetAmount();
                 CURRENT_STATE = TRANSFER_GET_AMOUNT;
+            } else {
+                atmBox.getAtmScreen().showTransferGetAccount();
+                CURRENT_STATE = TRANSFER_GET_ACCOUNT;
             }
         } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
             atmBox.getAtmScreen().showMenu();
@@ -424,6 +427,9 @@ public class MainATM implements Observer {
                     atmBox.getAtmScreen().showTransferSuccess();
                     CURRENT_STATE = TRANSFER_SUCCESS;
                 }
+            } else {
+                atmBox.getAtmScreen().showTransferGetAmount();
+                CURRENT_STATE = TRANSFER_GET_AMOUNT;
             }
         } else if ("CCLACT".equals(x) || "ACT8".equals(x)) {
             atmBox.getAtmScreen().showMenu();

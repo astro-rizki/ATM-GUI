@@ -119,7 +119,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         label2.setText("WITHDRAWAL");
         label3.setText("DEPOSIT");
         label4.setText("");
-        label5.setText("TRANSFER N/A");
+        label5.setText("TRANSFER");
         label6.setText("CHANGE PIN");
         label7.setText("");
         label8.setText("EXIT");
@@ -633,7 +633,7 @@ public class ATMScreen extends javax.swing.JPanel implements Observer {
         topLabel.setForeground(new java.awt.Color(255, 255, 255));
         topLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         topLabel.setText("TOP LABEL");
-        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 510, -1));
+        add(topLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 730, -1));
 
         getAccessibleContext().setAccessibleParent(this);
     }// </editor-fold>//GEN-END:initComponents

@@ -79,6 +79,14 @@ public class ATM_Controller {
     public void setUserAuthenticated(int userAuthenticated) {
         this.userAuthenticated = userAuthenticated;
     }
+    
+    public double getCurrentAccountBalance(){
+        return bankDatabase.getAccount(currentAccountNumber).getTotalBalance();
+    }
+    
+    public double getCurrentAccAvailBalance(){
+        return bankDatabase.getAccount(currentAccountNumber).getAvailableBalance();
+    }
 
     public int getCurrentAccountNumber() {
         return currentAccountNumber;
