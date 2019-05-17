@@ -7,7 +7,6 @@ package View;
 
 import java.util.Observable;
 import java.util.Observer;
-import javax.swing.Timer;
 import javax.swing.JLabel;
 import static javax.swing.SwingConstants.*;
 
@@ -17,7 +16,6 @@ import static javax.swing.SwingConstants.*;
  */
 public class ATMScreen extends javax.swing.JPanel implements Observer {
 
-    private Timer tm;
     private String cursorPosition;
 
     /**
